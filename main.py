@@ -14,19 +14,19 @@ simon = Simon(screen)
 ticker = 0
 running = True
 clock = pygame.time.Clock()
+
+simon.createPattern()
+print(simon.pattern)
 while running:
 	clock.tick(60)
-	
-	if ticker % 90 == 0:
+	if ticker == 60:
 		ticker = 0
-		simon.red = False
-		simon.blue = False
-		simon.yellow = False
-		simon.green = False
 	ticker += 1
+
 	for event in pygame.event.get():
 		if event.type == pygame.QUIT:
 			running = False
 
+	simon.runPattern()
 	simon.update()
 	pygame.display.flip()
