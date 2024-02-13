@@ -15,18 +15,15 @@ ticker = 0
 running = True
 clock = pygame.time.Clock()
 
-simon.createPattern()
-print(simon.pattern)
+simon.createPattern(True)
 while running:
 	clock.tick(60)
-	if ticker == 60:
-		ticker = 0
-	ticker += 1
-
+	
 	for event in pygame.event.get():
 		if event.type == pygame.QUIT:
 			running = False
-
-	simon.runPattern()
+	if simon.lose:
+		running = False
 	simon.update()
+
 	pygame.display.flip()
