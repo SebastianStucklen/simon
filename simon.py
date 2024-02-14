@@ -49,6 +49,8 @@ class Simon:
 		self.playerTurn()
 
 	def draw(self):
+		#score = pygame.text
+		#self.screen.blit()
 		self.drawRed()
 		self.drawBlue()
 		self.drawYellow()
@@ -64,7 +66,7 @@ class Simon:
 				mixer.Sound.play(self.redSound)
 			else:
 				self.red = False
-		elif self.red == False:
+		elif self.red == False: 	
 			pygame.draw.rect(self.screen , (232, 63, 111), (self.redRect))#, math.pi / 2, math.pi, 100)
 			self.red = False
 	
@@ -156,7 +158,6 @@ class Simon:
 						]
 					)
 				)
-		print(self.pattern)
 	
 	def runPattern(self):
 		'''Runs the pattern '''
@@ -185,8 +186,8 @@ class Simon:
 				self.draw()
 				pygame.display.flip()
 				pygame.time.wait(1019)
-				pygame.mixer.stop()
 			self.computerTurn = False
+			pygame.mixer.stop()
 
 	def playerTurn(self):
 		if self.computerTurn == False:
@@ -194,11 +195,11 @@ class Simon:
 				self.ticker+=1
 				self.click()
 				self.draw()
-				if self.ticker == 120:
+				if self.ticker == 240:
 					self.lose = True
 				if self.clicked != 'nothing':
 					self.playerPattern.append(self.clicked)
-					ticker = 0
+					self.ticker = 0
 					if self.clicked == 'red':
 						self.red = True#
 						self.blue = False
