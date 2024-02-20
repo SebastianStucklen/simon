@@ -224,7 +224,7 @@ class Simon:
 					pygame.display.flip()
 					self.clicked = 'nothing'
 					if pygame.mouse.get_pressed()[0]:
-						pygame.time.wait(1019)
+						pygame.time.wait(1000)
 						pygame.mixer.stop()
 			else:
 				if self.playerPattern == self.pattern:
